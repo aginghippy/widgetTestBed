@@ -35,11 +35,11 @@ $(document).ready(function(){
 
     }
     function initializeTrackingId() {
-      trackingID= 429,
+       trackingID= 9081,
         useCaseID = 1,
         variationID = 1,
-       // postAPI = "http://127.0.0.1:8000/api/webhooks";
-         postAPI = "https://cret.chalakh.co/api/webhooks";
+         postAPI = "http://127.0.0.1:8000/api/webhooks";
+        // postAPI = "https://cret.chalakh.co/api/webhooks";
     };
     function initiliazeWebhookDataObj() {
         campaignMetaUpdate = [
@@ -1107,7 +1107,10 @@ $(document).ready(function(){
               ],
               "region": [
                 "USA",
-                "Canada"
+                "CANADA",
+                "UK",
+                "IRELAND",
+                "AUSTRALIA"
               ],
               "pageTarget": [
                 {
@@ -1115,10 +1118,10 @@ $(document).ready(function(){
                     {
                       "subGroup": {
                         "urlCategory": "url host",
-                        "subGroupLogicOperand": "null",
+                        "urlCategoryMatchType": "is",
                         "subGroupMatch": [
                           {
-                            "urlCategoryMatchType": "is",
+
                             "urlCategoryValue": "bs-local.com:63342"
                           }
                         ]
@@ -1127,18 +1130,83 @@ $(document).ready(function(){
                     {
                       "subGroup": {
                         "urlCategory": "url path",
-                        "subGroupLogicOperand": "and",
+                        "urlCategoryMatchType": "is",
                         "subGroupMatch": [
                           {
-                            "urlCategoryMatchType": "is",
+
                             "urlCategoryValue": "/chso/clientPageWithSnippet.html"
+                          }
+                        ]
+
+                      }
+                    },
+                    {
+                      "subGroup": {
+                        "urlCategory": "url query",
+                        "urlCategoryMatchType": "is not",
+                        "subGroupMatch": [
+                          {
+
+                            "urlCategoryValue": "utm=google"
                           }
                         ]
 
                       }
                     }
                   ]
-                }
+                },
+                {
+                  "group": [
+                    {
+                      "subGroup": {
+                        "urlCategory": "url host",
+                        "urlCategoryMatchType": "includes",
+
+                        "subGroupMatch": [
+                          {
+
+                            "urlCategoryValue": "bs-local.com"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "subGroup": {
+                        "urlCategory": "url query",
+                        "urlCategoryMatchType": "is",
+                        "subGroupMatch": [
+                          {
+
+                            "urlCategoryValue": "cpw=rbs"
+                          },
+                          {
+
+                            "urlCategoryValue": "utm=email"
+                          }
+                        ]
+
+                      }
+                    },
+                    {
+                      "subGroup": {
+                        "urlCategory": "url path",
+                        "urlCategoryMatchType": "includes",
+                        "subGroupMatch": [
+                          {
+
+                            "urlCategoryValue": "clientPageWithSnippt"
+                          },
+                          {
+
+                            "urlCategoryValue": "Snippet"
+                          }
+                        ]
+
+                      }
+                    }
+                  ]
+                },
+
               ]
             }
           }];
@@ -1294,23 +1362,33 @@ $(document).ready(function(){
           },
           {
             "returnedData": {
-              "includeSmartProbe":false,
+              "includeSmartProbe":true,
               "goal": [
                 {
-                  "dataField": "prospectName",
+                  "fieldName": "prospectName",
+                  "label":" Prospect Name",
+                  "required": true,
                   "importance": "2"},
                 {
-                  "dataField": "phoneNumber",
-                  "importance": "3"},
+                  "fieldName": "phoneNumber",
+                  "importance": "3",
+                  "label":" Phone Number",
+                  "required": true,},
                 {
-                  "dataField": "emailAddress",
-                  "importance": "1"},
+                  "fieldName": "emailAddress",
+                  "importance": "1",
+                  "label":" Email Address",
+                  "required": true,},
                 {
-                  "dataField": "companyName",
-                  "importance": "4"},
+                  "fieldName": "companyName",
+                  "importance": "4",
+                  "label":"Company Name",
+                  "required": true,},
                 {
-                  "dataField": "businessTitle",
-                  "importance": "5"}
+                  "fieldName": "businessTitle",
+                  "importance": "5",
+                  "label":"Business Title",
+                  "required": true}
               ]
 
             }
@@ -1417,7 +1495,6 @@ $(document).ready(function(){
         var response = postPayload(storyTopicsMeta, 'topicsMeta', trackingID);
 
     }
-
 
     function publishNodesMeta(a) {
 
