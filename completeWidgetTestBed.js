@@ -9,7 +9,9 @@ $(document).ready(function(){
 
     function addClickHandlers() {
 
-      $("#synchronousStuff").click(synchronousStuff);
+      $("#synchronousStuffNewCampaign").click(synchronousStuffNewCampaign);
+
+      $("#synchronousStuffUpdateCampaign").click(synchronousStuffUpdateCampaign);
 
       $("#asynchronousStuff").click(asynchronousStuff);
 
@@ -35,11 +37,11 @@ $(document).ready(function(){
 
     }
     function initializeTrackingId() {
-       trackingID= 9081,
-        useCaseID = 1,
+       trackingID= 9099,
+        useCaseID = 2,
         variationID = 1,
-         postAPI = "http://127.0.0.1:8000/api/webhooks";
-        // postAPI = "https://cret.chalakh.co/api/webhooks";
+      //  postAPI = "http://127.0.0.1:8000/api/webhooks";
+         postAPI = "https://cret.chalakh.co/api/webhooks";
     };
     function initiliazeWebhookDataObj() {
         campaignMetaUpdate = [
@@ -48,25 +50,47 @@ $(document).ready(function(){
                 "trid": trackingID
               }
             },
-            {
-              "returnedData":
+          {
+            "returnedData":
 
-                {
-                  "ctype":"update",
-                  "vaid": variationID,
-                  "uscs": useCaseID,
-                  "tcnt": "1",
-                  "ncnt": "18",
-                  "cnam": "Thomas Edison Fund Raising",
-                  "cimod": "PR-1",
-                  "webproperty": "bs-local.com",
-                  "searchType": null,
-                  "campaignType": "simple",
-                  "debugMode": false
-                }
+              {
+                "ctype":"update",
+                "vaid": variationID,
+                "uscs": useCaseID,
+                "tcnt": "1",
+                "ncnt": "8",
+                "campaignName": "Test Remaining Widgets",
+                "webproperty": "bs-local.com",
+                "searchType": "",
+                "campaignType": "simple",
+                "debugMode": true,
+                "audioAnnotation":false,
+                "primaryColor":null,
+                "secondaryColor":null,
+                "visitorGreeting": ["Hey there! Would you like to know how TESU can help advance your career?"],
+                "introduceStory":[],
+                "callToAction":[
 
+                  /* {"capability": "allowVisitorToMakeCall",
+                     "callToAction": "Call Now!",
+                     "callToActionAttribute": "2034220459"
+                   }, */
+                  {"capability": "sendVisitorToHighValuePage",
+                    "callToAction": "Apply Now",
+                    "callToActionAttribute": "https://www.tesu.edu/apply"
+                  },
+                  {"capability": "getVisitorContactInformation",
+                    "callToAction": "Request Information",
+                    "callToActionAttribute": ""
+                  },
+                  {"capability": "downloadImportantDocument",
+                    "callToAction": "Call Now!",
+                    "callToActionAttribute": "https://chalakh-bot-js.s3.us-east-2.amazonaws.com/tesu/docs/catalog-ug.pdf"
+                  },
+                ]
+              }
+          },
 
-            }
         ],
 
         campaignMetaNew = [
@@ -90,6 +114,8 @@ $(document).ready(function(){
                 "campaignType": "simple",
                 "debugMode": true,
                 "audioAnnotation":false,
+                "primaryColor":null,
+                "secondaryColor":null,
                 "visitorGreeting": ["Hey there! Would you like to know how TESU can help advance your career?"],
                 "introduceStory":[],
                 "callToAction":[
@@ -131,7 +157,8 @@ $(document).ready(function(){
                 "topicID": 0,
                 "topicName": "Testing of Random Widgets",
                 "topicDescription":"",
-                "topicImage":""
+                "topicImage":"",
+                "topicType":"notConversationalSearch"
               }, // topic 0
 
 
@@ -148,9 +175,80 @@ $(document).ready(function(){
           },
           {
             "returnedData": [
+            {
+                "topicID": 0,
+                "topicType":"notConversationalSearch",
+                "nodeOrder": 0,
+                "nodeDisplayName": "Star Rating",
+                "nodeTemplateCategory": "starRating",
+                "skipLogicType": "default",
+                "skipLogic": [
+
+                ],
+                "dataPrefilled": false,
+                "searchContent": false,
+                "searchQuery":false
+              },
               {
                 "topicID": 0,
-                "nodeOrder": 0,
+                "topicType":"notConversationalSearch",
+                "nodeOrder": 1,
+                "nodeDisplayName": "Rank Choices",
+                "nodeTemplateCategory": "rankChoices",
+                "skipLogicType": "default",
+                "skipLogic": [
+
+                ],
+                "dataPrefilled": false,
+                "searchContent": false,
+                "searchQuery":false
+              },
+              {
+                "topicID": 0,
+                "topicType":"notConversationalSearch",
+                "nodeOrder": 2,
+                "nodeDisplayName": "Interactive Slider",
+                "nodeTemplateCategory": "interactiveSlider",
+                "skipLogicType": "default",
+                "skipLogic": [
+
+                ],
+                "dataPrefilled": false,
+                "searchContent": false,
+                "searchQuery":false
+              },
+              {
+                "topicID": 0,
+                "topicType":"notConversationalSearch",
+                "nodeOrder": 3,
+                "nodeDisplayName": "Matrix Rating",
+                "nodeTemplateCategory": "matrixRating",
+                "skipLogicType": "default",
+                "skipLogic": [
+
+                ],
+                "dataPrefilled": false,
+                "searchContent": false,
+                "searchQuery":false
+              },
+              {
+                "topicID": 0,
+                "topicType":"notConversationalSearch",
+                "nodeOrder": 4,
+                "nodeDisplayName": "Image Selection",
+                "nodeTemplateCategory": "imageSelection",
+                "skipLogicType": "default",
+                "skipLogic": [
+
+                ],
+                "dataPrefilled": false,
+                "searchContent": false,
+                "searchQuery":false
+              },
+              {
+                "topicID": 0,
+                "topicType":"notConversationalSearch",
+                "nodeOrder": 5,
                 "nodeDisplayName": "Quick Replies",
                 "nodeTemplateCategory": "quickReplies",
                 "skipLogicType": "default",
@@ -160,77 +258,13 @@ $(document).ready(function(){
                 "dataPrefilled": false,
                 "searchContent": false,
                 "searchQuery":false
-              }, // 0
+              }, // 5
               {
                 "topicID": 0,
-                "nodeOrder": 1,
+                "topicType":"notConversationalSearch",
+                "nodeOrder": 6,
                 "nodeDisplayName": "Contacts Collector",
                 "nodeTemplateCategory": "contactsCollector",
-                "skipLogicType": "default",
-                "skipLogic": [
-
-                ],
-                "dataPrefilled": false,
-                "searchContent": false,
-                "searchQuery":false
-              }, //1
-              {
-                "topicID": 0,
-                "nodeOrder": 2,
-                "nodeDisplayName": "Survey Question - Single Choice",
-                "nodeTemplateCategory": "surveyQuestion",
-                "skipLogicType": "default",
-                "skipLogic": [
-
-                ],
-                "dataPrefilled": false,
-                "searchContent": false,
-                "searchQuery":false
-              }, //2
-              {
-                "topicID": 0,
-                "nodeOrder": 3,
-                "nodeDisplayName": "Survey Question - Multiple Choice",
-                "nodeTemplateCategory": "surveyQuestion",
-                "skipLogicType": "default",
-                "skipLogic": [
-
-                ],
-                "dataPrefilled": false,
-                "searchContent": false,
-                "searchQuery":false
-              }, //3
-              {
-                "topicID": 0,
-                "nodeOrder": 4,
-                "nodeDisplayName": "Comment Box",
-                "nodeTemplateCategory": "commentBox",
-                "skipLogicType": "default",
-                "skipLogic": [
-
-                ],
-                "dataPrefilled": false,
-                "searchContent": false,
-                "searchQuery":false
-              }, //4
-              {
-                "topicID": 0,
-                "nodeOrder": 5,
-                "nodeDisplayName": "Net Promoter Score",
-                "nodeTemplateCategory": "netPromoterScore",
-                "skipLogicType": "default",
-                "skipLogic": [
-
-                ],
-                "dataPrefilled": false,
-                "searchContent": false,
-                "searchQuery":false
-              }, //5
-              {
-                "topicID": 0,
-                "nodeOrder": 6,
-                "nodeDisplayName": "Downloadable Documents",
-                "nodeTemplateCategory": "marketingBrochure",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -241,9 +275,10 @@ $(document).ready(function(){
               }, //6
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 7,
-                "nodeDisplayName": "Image Gallery",
-                "nodeTemplateCategory": "imageGallery",
+                "nodeDisplayName": "Survey Question - Single Choice",
+                "nodeTemplateCategory": "surveyQuestion",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -254,9 +289,10 @@ $(document).ready(function(){
               }, //7
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 8,
-                "nodeDisplayName": "Presentation Slide",
-                "nodeTemplateCategory": "presentationSlide",
+                "nodeDisplayName": "Survey Questi7on - Multiple Choice",
+                "nodeTemplateCategory": "surveyQuestion",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -267,9 +303,10 @@ $(document).ready(function(){
               }, //8
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 9,
-                "nodeDisplayName": "Content Tile",
-                "nodeTemplateCategory": "contentTile",
+                "nodeDisplayName": "Comment Box",
+                "nodeTemplateCategory": "commentBox",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -280,9 +317,10 @@ $(document).ready(function(){
               }, //9
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 10,
-                "nodeDisplayName": "Audio Video Message",
-                "nodeTemplateCategory": "audioVideoMessage",
+                "nodeDisplayName": "Net Promoter Score",
+                "nodeTemplateCategory": "netPromoterScore",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -293,9 +331,10 @@ $(document).ready(function(){
               }, //10
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 11,
-                "nodeDisplayName": "Content Card",
-                "nodeTemplateCategory": "contentCard",
+                "nodeDisplayName": "Downloadable Documents",
+                "nodeTemplateCategory": "marketingBrochure",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -306,9 +345,10 @@ $(document).ready(function(){
               }, //11
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 12,
-                "nodeDisplayName": "Textual Description - With Image",
-                "nodeTemplateCategory": "textualDescription",
+                "nodeDisplayName": "Image Gallery",
+                "nodeTemplateCategory": "imageGallery",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -319,9 +359,10 @@ $(document).ready(function(){
               }, //12
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 13,
-                "nodeDisplayName": "Textual Description - Without Image",
-                "nodeTemplateCategory": "textualDescription",
+                "nodeDisplayName": "Presentation Slide",
+                "nodeTemplateCategory": "presentationSlide",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -332,9 +373,10 @@ $(document).ready(function(){
               }, //13
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 14,
-                "nodeDisplayName": "Bullet Points With Header",
-                "nodeTemplateCategory": "bulletPoints",
+                "nodeDisplayName": "Content Tile",
+                "nodeTemplateCategory": "contentTile",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -345,9 +387,10 @@ $(document).ready(function(){
               }, //14
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 15,
-                "nodeDisplayName": "Bullet Points Without Header",
-                "nodeTemplateCategory": "bulletPoints",
+                "nodeDisplayName": "Audio Video Message",
+                "nodeTemplateCategory": "audioVideoMessage",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -358,9 +401,10 @@ $(document).ready(function(){
               }, //15
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 16,
-                "nodeDisplayName": "Quotable Quotes",
-                "nodeTemplateCategory": "quotableQuotes",
+                "nodeDisplayName": "Content Card",
+                "nodeTemplateCategory": "contentCard",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -371,9 +415,10 @@ $(document).ready(function(){
               }, //16
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 17,
-                "nodeDisplayName": "Payment Processor",
-                "nodeTemplateCategory": "paymentProcessor",
+                "nodeDisplayName": "Textual Description - With Image",
+                "nodeTemplateCategory": "textualDescription",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -384,9 +429,10 @@ $(document).ready(function(){
               }, //17
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 18,
-                "nodeDisplayName": "Conversion Popup - Content Offer",
-                "nodeTemplateCategory": "conversionPopup",
+                "nodeDisplayName": "Textual Description - Without Image",
+                "nodeTemplateCategory": "textualDescription",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -397,9 +443,10 @@ $(document).ready(function(){
               }, //18
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 19,
-                "nodeDisplayName": "Conversion Popup - Product Offer With Image",
-                "nodeTemplateCategory": "conversionPopup",
+                "nodeDisplayName": "Bullet Points With Header",
+                "nodeTemplateCategory": "bulletPoints",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -410,9 +457,10 @@ $(document).ready(function(){
               }, //19
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 20,
-                "nodeDisplayName": "Converision Popup - Webinar Offer",
-                "nodeTemplateCategory": "conversionPopup",
+                "nodeDisplayName": "Bullet Points Without Header",
+                "nodeTemplateCategory": "bulletPoints",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -423,7 +471,79 @@ $(document).ready(function(){
               }, //20
               {
                 "topicID": 0,
+                "topicType":"notConversationalSearch",
                 "nodeOrder": 21,
+                "nodeDisplayName": "Quotable Quotes",
+                "nodeTemplateCategory": "quotableQuotes",
+                "skipLogicType": "default",
+                "skipLogic": [
+
+                ],
+                "dataPrefilled": false,
+                "searchContent": false,
+                "searchQuery":false
+              }, //21
+              {
+                "topicID": 0,
+                "topicType":"notConversationalSearch",
+                "nodeOrder": 22,
+                "nodeDisplayName": "Conversion Popup - Content Offer",
+                "nodeTemplateCategory": "conversionPopup",
+                "skipLogicType": "default",
+                "skipLogic": [
+
+                ],
+                "dataPrefilled": false,
+                "searchContent": false,
+                "searchQuery":false
+              }, //22
+              {
+                "topicID": 0,
+                "topicType":"notConversationalSearch",
+                "nodeOrder": 23,
+                "nodeDisplayName": "Conversion Popup - Product Offer With Image",
+                "nodeTemplateCategory": "conversionPopup",
+                "skipLogicType": "default",
+                "skipLogic": [
+
+                ],
+                "dataPrefilled": false,
+                "searchContent": false,
+                "searchQuery":false
+              }, //23
+              {
+                "topicID": 0,
+                "topicType":"notConversationalSearch",
+                "nodeOrder": 24,
+                "nodeDisplayName": "Converision Popup - Webinar Offer",
+                "nodeTemplateCategory": "conversionPopup",
+                "skipLogicType": "default",
+                "skipLogic": [
+
+                ],
+                "dataPrefilled": false,
+                "searchContent": false,
+                "searchQuery":false
+              }, //24
+              {
+                "topicID": 0,
+                "topicType":"notConversationalSearch",
+                "nodeOrder": 25,
+                "nodeDisplayName": "Payment Processor",
+                "nodeTemplateCategory": "paymentProcessor",
+                "skipLogicType": "default",
+                "skipLogic": [
+
+                ],
+                "dataPrefilled": false,
+                "searchContent": false,
+                "searchQuery":false
+              }, //25
+
+              {
+                "topicID": 0,
+                "topicType":"notConversationalSearch",
+                "nodeOrder": 26,
                 "nodeDisplayName": "Terminate Conversation- Current Page",
                 "nodeTemplateCategory": "terminateConversation",
                 "skipLogicType": "end",
@@ -433,7 +553,7 @@ $(document).ready(function(){
                 "dataPrefilled": false,
                 "searchContent": false,
                 "searchQuery":false
-              }, //21
+              }, //26
             ]
           }
         ],
@@ -443,6 +563,196 @@ $(document).ready(function(){
           {
             "topicID": 0,
             "nodeOrder": 0,
+            "nodeDisplayName": "Star Rating",
+            "nodeTemplateCategory": "starRating",
+            "answerRequired": true,
+            "instantResults":true,
+            "shapeIconSelection":"mixed",
+            "searchQuery":false,
+            "searchContent":false,
+            "conversationBlurbs":["Please select a cause you would like your donation to be directed towards"],
+            "audioAnnotation": [],
+            "nodeInputContent": [
+              { "question": "How likely are you to recommend Chalakh to other marketers?",
+                "labels": ["No Impact","A Little Impact", "Moderate Impact", "Significant Impact","Huge Impact"],
+
+              },
+              { "question": "How easy was it to create a campaign using Chalakh's Composer?",
+                "labels": ["No Impact","A Little Impact", "Moderate Impact", "Significant Impact","Huge Impact"],
+
+              }
+
+            ]
+          }, //  0
+          {
+            "topicID": 0,
+            "nodeOrder": 1,
+            "nodeDisplayName": "Rank Choices",
+            "nodeTemplateCategory": "rankChoices",
+            "answerRequired": true,
+            "instantResults":true,
+            "optionOrderDisplaySelection":"random",
+            "searchQuery":false,
+            "searchContent":false,
+            "question":"Rank furits below in the order of your preference?",
+            "conversationBlurbs":["Please select a cause you would like your donation to be directed towards"],
+            "audioAnnotation": [],
+            "nodeInputContent": [
+              { "option": "mangoes",
+                "order":0,
+              },
+              { "option": "perus",
+                "order":1,
+              },
+              { "option": "grapes",
+                "order":2,
+              },
+              { "option": "banana",
+                "order":3,
+              }
+            ]
+          }, //  1
+          {
+            "topicID": 0,
+            "nodeOrder": 2,
+            "nodeDisplayName": "Interactive Slider",
+            "nodeTemplateCategory": "interactiveSlider",
+            "answerRequired": true,
+            "instantResults":true,
+            "searchQuery":false,
+            "searchContent":false,
+            "question": "How likely are you to recommend Chalakh to other marketers?",
+            "conversationBlurbs":["Please select a cause you would like your donation to be directed towards"],
+            "audioAnnotation": [],
+            "nodeInputContent": [
+              {
+                "minScale":'0',
+                "minLabel":"Not Happy",
+                "maxScale":"100",
+                "maxLabel":"Very Happy",
+              }
+
+            ]
+          }, //  2
+          {
+            "topicID": 0,
+            "nodeOrder": 3,
+            "nodeDisplayName": "Matrix Rating",
+            "nodeTemplateCategory": "matrixRating",
+            "answerRequired": true,
+            "responsePerRow":"single", // or multiple choice
+            "instantResults":true,
+            "question":"Rank furits below in the order of your preference?",
+            "searchQuery":false,
+            "searchContent":false,
+            "conversationBlurbs":["Please select a cause you would like your donation to be directed towards"],
+            "audioAnnotation": [],
+            "nodeInputContent": [
+              { "rowNumber": 0,
+                "columnNumber":0,
+                "rowLabel": "Mangoes",
+                "returnValue": "morning",
+                "columnLabel": "Morning",
+              },
+              { "rowNumber": 0,
+                "columnNumber":1,
+                "rowLabel": "Mangoes",
+                "returnValue": "afternoon",
+                "columnLabel": "Afternoon",
+              },
+              { "rowNumber": 0,
+                "columnNumber":1,
+                "rowLabel": "Mangoes",
+                "returnValue": "evening",
+                "columnLabel": "evening",
+              },
+
+              { "rowNumber": 1,
+                "columnNumber":0,
+                "rowLabel": "Perus",
+                "returnValue": "morning",
+                "columnLabel": "morning",
+              },
+              { "rowNumber": 1,
+                "columnNumber":1,
+                "rowLabel": "Perus",
+                "returnValue": "afternoon",
+                "columnLabel": "Afternoon",
+              },
+              { "rowNumber": 1,
+                "columnNumber":1,
+                "rowLabel": "Perus",
+                "returnValue": "evening",
+                "columnLabel": "Evening",
+              },
+
+              { "rowNumber": 2,
+                "columnNumber":0,
+                "rowLabel": "Bananas",
+                "columnLabel": "Morning",
+                "returnValue": "morning",
+              },
+              { "rowNumber": 2,
+                "columnNumber":1,
+                "rowLabel": "Bananas",
+                "returnValue": "afternoon",
+                "columnLabel": "Afternoon",
+              },
+              { "rowNumber": 2,
+                "columnNumber":1,
+                "rowLabel": "Bananas",
+                "returnValue": "evening",
+                "columnLabel": "Evening",
+              },
+
+
+            ]
+          }, //  3
+          {
+            "topicID": 0,
+            "nodeOrder": 4,
+            "nodeDisplayName": "Image Selection",
+            "nodeTemplateCategory": "imageSelection",
+            "answerRequired": true,
+            "searchQuery":false,
+            "searchContent":false,
+            "questionType": "singleChoice",
+            "conversationBlurbs":["Please select a cause you would like your donation to be directed towards"],
+            "audioAnnotation": [],
+            "nodeInputContent": [
+              {
+                "displayName" : "TESU Scholarship Fund",
+                "returnValue" : "scholarshipfund",
+                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+              },
+              {
+                "displayName" : "Annual Fund",
+                "returnValue" : "annualfund",
+                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+              },
+              {
+                "displayName" : "Nursing Scholarships",
+                "returnValue" : "nursingscholarship",
+                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+              },
+              {
+                "displayName" : "Military Scholarships",
+                "returnValue" : "militaryscholarship",
+                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+              },
+              {
+                "displayName" : "Nicholas & Marjorie Carnevale Endowment",
+                "returnValue" : "nicholasendowment",
+                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+              }
+
+
+            ]
+          }, //  4
+
+          {
+            "topicID": 0,
+            "nodeOrder": 5,
             "nodeDisplayName": "Quick Replies",
             "nodeTemplateCategory": "quickReplies",
             "answerRequired": true,
@@ -462,10 +772,10 @@ $(document).ready(function(){
               }
 
             ]
-          }, //  0
+          }, // 5
           {
             "topicID": 0,
-            "nodeOrder": 1,
+            "nodeOrder": 6,
             "nodeDisplayName": "Contacts Collector",
             "nodeTemplateCategory": "contactsCollector",
             "answerRequired": true,
@@ -483,10 +793,10 @@ $(document).ready(function(){
                 "required": true,
                 "label": "Email Address"
               }]
-          }, // 1
+          }, // 6
           {
             "topicID": 0,
-            "nodeOrder": 2,
+            "nodeOrder": 7,
             "nodeDisplayName": "Survey Question - Single Choice",
             "nodeTemplateCategory": "surveyQuestion",
             "answerRequired": true,
@@ -499,35 +809,35 @@ $(document).ready(function(){
               {
                 "displayName" : "TESU Scholarship Fund",
                 "returnValue" : "scholarshipfund",
-                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+                "displayImage": ''
               },
               {
                 "displayName" : "Annual Fund",
                 "returnValue" : "annualfund",
-                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+                "displayImage": ''
               },
               {
                 "displayName" : "Nursing Scholarships",
                 "returnValue" : "nursingscholarship",
-                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+                "displayImage": ''
               },
               {
                 "displayName" : "Military Scholarships",
                 "returnValue" : "militaryscholarship",
-                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+                "displayImage": ''
               },
               {
                 "displayName" : "Nicholas & Marjorie Carnevale Endowment",
                 "returnValue" : "nicholasendowment",
-                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+                "displayImage": ''
               }
 
 
             ]
-          }, // , 2
+          }, // , 7
           {
             "topicID": 0,
-            "nodeOrder": 3,
+            "nodeOrder": 8,
             "nodeDisplayName": "Survey Question - Multiple Choice",
             "nodeTemplateCategory": "surveyQuestion",
             "answerRequired": true,
@@ -540,35 +850,35 @@ $(document).ready(function(){
               {
                 "displayName" : "TESU Scholarship Fund",
                 "returnValue" : "scholarshipfund",
-                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+                "displayImage": ''
               },
               {
                 "displayName" : "Annual Fund",
                 "returnValue" : "annualfund",
-                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+                "displayImage": ''
               },
               {
                 "displayName" : "Nursing Scholarships",
                 "returnValue" : "nursingscholarship",
-                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+                "displayImage": ''
               },
               {
                 "displayName" : "Military Scholarships",
                 "returnValue" : "militaryscholarship",
-                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+                "displayImage": ''
               },
               {
                 "displayName" : "Nicholas & Marjorie Carnevale Endowment",
                 "returnValue" : "nicholasendowment",
-                "displayImage": 'https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/oily-skin.png'
+                "displayImage": ''
               }
 
 
             ]
-          }, // , 3
+          }, // , 8
           {
             "topicID": 0,
-            "nodeOrder": 4,
+            "nodeOrder": 9,
             "nodeDisplayName": "Comments Box",
             "nodeTemplateCategory": "commentBox",
             "answerRequired": true,
@@ -580,10 +890,10 @@ $(document).ready(function(){
 
               }
               ]
-          }, // 4
+          }, // 9
           {
             "topicID": 0,
-            "nodeOrder": 5,
+            "nodeOrder": 10,
             "nodeDisplayName": "Net Promoter Score",
             "nodeTemplateCategory": "netPromoterScore",
             "answerRequired": true,
@@ -597,10 +907,10 @@ $(document).ready(function(){
 
               }
             ]
-          }, // 5
+          }, // 10
           {
             "topicID": 0,
-            "nodeOrder": 6,
+            "nodeOrder": 11,
             "nodeDisplayName": "Downloadable Documents",
             "nodeTemplateCategory": "marketingBrochure",
             "conversationBlurbs":["Finally there are numerous financial aid programs that can help you lower cost"],
@@ -617,10 +927,10 @@ $(document).ready(function(){
 
             ],
 
-          }, // 6
+          }, // 11
           {
             "topicID": 0,
-            "nodeOrder": 7,
+            "nodeOrder": 12,
             "nodeDisplayName": "Image Gallery",
             "nodeTemplateCategory": "imageGallery",
             "answerRequired": true,
@@ -653,10 +963,10 @@ $(document).ready(function(){
               }
             ],
 
-          }, // 7
+          }, // 12
           {
             "topicID": 0,
-            "nodeOrder": 8,
+            "nodeOrder": 13,
             "nodeDisplayName": "Presentation Slide",
             "nodeTemplateCategory": "presentationSlide",
             "answerRequired": true,
@@ -679,10 +989,10 @@ $(document).ready(function(){
                 "uploadSlide": "https://s3.us-east-2.amazonaws.com/chalakh-bot-js/event/hcp/images/attendeebyfunction.jpeg"
               }
             ]
-          }, // 8
+          }, // 13
           {
             "topicID": 0,
-            "nodeOrder": 9,
+            "nodeOrder": 14,
             "nodeDisplayName": "Content Tile",
             "nodeTemplateCategory": "contentTile",
             "answerRequired": true,
@@ -709,10 +1019,10 @@ $(document).ready(function(){
 
 
             ]
-          }, //  9
+          }, // 14
           {
             "topicID": 0,
-            "nodeOrder": 10,
+            "nodeOrder": 15,
             "nodeDisplayName": "Audio Video Message",
             "nodeTemplateCategory": "audioVideoMessage",
             "conversationBlurbs":["This year the CASE Award was given to Robin Walton", "Here is a short video about that and why she deserves the rcognition"],
@@ -731,10 +1041,10 @@ $(document).ready(function(){
 
             ],
 
-          }, //10
+          }, //15
           {
             "topicID": 0,
-            "nodeOrder": 11,
+            "nodeOrder": 16,
             "nodeDisplayName": "Content Card",
             "nodeTemplateCategory": "contentCard",
             "conversationBlurbs":["Not sure if you have met the latest crop of Alumni Ambassadors", "Check them out - perhaps you may know someone", "You know - you can always become an ambassador too"],
@@ -764,10 +1074,10 @@ $(document).ready(function(){
 
 
             ]
-          }, //11
+          }, //16
           {
             "topicID": 0,
-            "nodeOrder": 12,
+            "nodeOrder": 17,
             "nodeDisplayName": "Textual Description With Images",
             "nodeTemplateCategory": "textualDescription",
             "conversationBlurbs":["The cost of education at TESU depends on various factors", "We have a few tools that can help you estimate he cost"],
@@ -784,10 +1094,10 @@ $(document).ready(function(){
 
             ],
 
-          }, //12
+          }, //17
           {
             "topicID": 0,
-            "nodeOrder": 13,
+            "nodeOrder": 18,
             "nodeDisplayName": "Textual Description Without Images",
             "nodeTemplateCategory": "textualDescription",
             "conversationBlurbs":["The cost of education at TESU depends on various factors", "We have a few tools that can help you estimate he cost"],
@@ -808,10 +1118,10 @@ $(document).ready(function(){
 
             ],
 
-          }, //13
+          }, //18
           {
             "topicID": 0,
-            "nodeOrder": 14,
+            "nodeOrder": 19,
             "nodeDisplayName": "Bullet Points Without Header",
             "nodeTemplateCategory": "bulletPoints",
             "addGroupHeaders":false,
@@ -834,10 +1144,10 @@ $(document).ready(function(){
 
             ],
 
-          }, //14
+          }, //19
           {
             "topicID": 0,
-            "nodeOrder": 15,
+            "nodeOrder": 20,
             "nodeDisplayName": "Bullet Points With Header",
             "nodeTemplateCategory": "bulletPoints",
             "addGroupHeaders":true,
@@ -861,10 +1171,10 @@ $(document).ready(function(){
 
             ],
 
-          }, //15
+          }, //20
           {
             "topicID": 0,
-            "nodeOrder": 16,
+            "nodeOrder": 21,
             "nodeDisplayName": "Bullet Points With Header",
             "nodeTemplateCategory": "quotableQuotes",
             "conversationBlurbs":["If you are in New Jersey you can benefit from our in-state low rates", "Also we have a flat rate program if you take 12 credits or more"],
@@ -887,10 +1197,96 @@ $(document).ready(function(){
 
             ],
 
-          }, //16
+          }, //21
+
           {
             "topicID": 0,
-            "nodeOrder": 17,
+            "nodeOrder":22,
+            "nodeDisplayName": "Conversion Popup - Content Offer",
+            "nodeTemplateCategory": "conversionPopup",
+            "popupType": "contentAssetOffer",
+            "conversationBlurbs":["Finally there are numerous financial aid programs that can help you lower cost"],
+            "audioAnnotation": [],
+            "nodeInputContent": [
+              {
+                "contentTitle": "Financial Aid Handbook",
+                "contentSubtitle": "",
+                "contentSummary": "Many adult students meeting the demands of work and family find that making the financial commitment to complete their education can be a challenge. The Office of Financial Aid is ready to assist students in securing the resources they need for their education",
+                "contentDetail" : ["Thomas Edison State University participates in a number of federal and state financial aid programs", "Eligible Thomas Edison State University students may receive Pell Grants or Federal Education Loans, such as the Subsidized Stafford Loan and the Unsubsidized Stafford Loan, for courses offered by the University", "Students may use state aid to meet all or part of their college costs, provided they are taking at least 12 college credits per term"],
+                "uploadContentAsset": "https://chalakh-bot-js.s3.us-east-2.amazonaws.com/dell/docs/5-ways-to-empower.pdf",
+                "contentImage": "https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/pg-popup.jpg"
+              }
+
+
+            ],
+
+          }, // 22
+          {
+            "topicID": 0,
+            "nodeOrder": 23,
+            "nodeDisplayName": "Conversion Popup - Product Offer with Image",
+            "nodeTemplateCategory": "conversionPopup",
+            "popupType": "productOfferWithImage",
+            "conversationBlurbs":["Finally there are numerous financial aid programs that can help you lower cost"],
+            "audioAnnotation": [],
+            "nodeInputContent": [
+              {
+                "productTitle": "Financial Aid Handbook",
+                "productSubtitle": "",
+                "offer": "Loyalty Program",
+                "offerSummary": "Many adult students meeting the demands of work and family find that making the financial commitment to complete their education can be a challenge. The Office of Financial Aid is ready to assist students in securing the resources they need for their education",
+                "offerDetail" : ["Thomas Edison State University participates in a number of federal and state financial aid programs", "Eligible Thomas Edison State University students may receive Pell Grants or Federal Education Loans, such as the Subsidized Stafford Loan and the Unsubsidized Stafford Loan, for courses offered by the University", "Students may use state aid to meet all or part of their college costs, provided they are taking at least 12 college credits per term"],
+                "productImage": "https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/pg-popup.jpg"
+              }
+
+
+            ],
+
+          }, // 23
+          {
+            "topicID": 0,
+            "nodeOrder": 24,
+            "nodeDisplayName": "Conversion Popup - Webinar Offer",
+            "nodeTemplateCategory": "conversionPopup",
+            "popupType": "webinarOffer",
+            "conversationBlurbs":["Finally there are numerous financial aid programs that can help you lower cost"],
+            "audioAnnotation": [],
+            "nodeInputContent": [
+              {
+                "webinarTitle": "The Uncertain Impact of Today’s Shopping Behavior",
+                "webinarSubtitle": "What Will Be the Effect on CPG Brand Loyalty?",
+                "webinarSchedule":"Wednesday, May 20, 2020, 1 PM ET | 10 AM PT",
+                "webinarSummary": "",
+                "webinarDetails": ["How buying behavior has changed throughout the pandemic across CPG categories",
+                  "How brand loyalty and repeat purchasing—for small, growing, and dominant brands— are being impacted",
+                  "How CPG companies can emerge from this pandemic with strong brand equity",
+
+                ],
+                "backgroundImage":"https://s3.us-east-2.amazonaws.com/chalakh-bot-js/event/hcp/images/blueprint-sponsor.jpg",
+
+                "sponsorName":"Sponsor: NC Solutions",
+                "sponsorLogo":"https://s3.us-east-2.amazonaws.com/chalakh-bot-js/event/hcp/images/blueprint-sponsor.jpg",
+
+                "firstSpeakerPhoto": "https://chalakh-bot-js.s3.us-east-2.amazonaws.com/cforc/images/brothersncsolutions.png",
+                "secondSpeakerPhoto": "https://chalakh-bot-js.s3.us-east-2.amazonaws.com/cforc/images/woodncsolutions.png",
+                "firstSpeakerName":"Steve Dunlop",
+                "secondSpeakerName":"Joe Smith",
+                "firstSpeakerDesignation":"Chief Research Officer - NSC Solutions",
+                "secondSpeakerDesignation":"Chief T O - NSC Solutions",
+                "firstSpeakerBio": "A pioneer and innovator in advertising analytics with more than 30 years of experience,\n" +
+                " Leslie leads research at NCS, shaping the methodologies and innovations that help brands advertise more effectively.",
+                "secondSpeakerBio":"Lance and his team partner with clients to develop effective, data-driven marketing and measurement solutions that drive outcome-based advertising and growth. \n" +
+                "He has over 20 years of senior leadership experience in media, advertising and sales.",
+
+              }
+
+
+            ],
+
+          }, // 24
+          {
+            "topicID": 0,
+            "nodeOrder": 25,
             "nodeDisplayName": "Select Donation Amount",
             "nodeTemplateCategory": "paymentProcessor",
             "answerRequired": true,
@@ -984,97 +1380,11 @@ $(document).ready(function(){
                 ]
               }
             ] // new format
-          },  //17
-          {
-            "topicID": 0,
-            "nodeOrder": 18,
-            "nodeDisplayName": "Conversion Popup - Content Offer",
-            "nodeTemplateCategory": "conversionPopup",
-            "popupType": "contentOffer",
-            "conversationBlurbs":["Finally there are numerous financial aid programs that can help you lower cost"],
-            "audioAnnotation": [],
-            "nodeInputContent": [
-              {
-                "contentTitle": "Financial Aid Handbook",
-                "contentSubtitle": "",
-                "contentSummary": "Many adult students meeting the demands of work and family find that making the financial commitment to complete their education can be a challenge. The Office of Financial Aid is ready to assist students in securing the resources they need for their education",
-                "contentDetail" : ["Thomas Edison State University participates in a number of federal and state financial aid programs", "Eligible Thomas Edison State University students may receive Pell Grants or Federal Education Loans, such as the Subsidized Stafford Loan and the Unsubsidized Stafford Loan, for courses offered by the University", "Students may use state aid to meet all or part of their college costs, provided they are taking at least 12 college credits per term"],
-                "uploadContentAsset": "https://chalakh-bot-js.s3.us-east-2.amazonaws.com/dell/docs/5-ways-to-empower.pdf",
-                "contentImage": "https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/pg-popup.jpg"
-              }
-
-
-            ],
-
-          }, // 18
-          {
-            "topicID": 0,
-            "nodeOrder": 19,
-            "nodeDisplayName": "Conversion Popup - Product Offer with Image",
-            "nodeTemplateCategory": "conversionPopup",
-            "popupType": "productOfferWithImage",
-            "conversationBlurbs":["Finally there are numerous financial aid programs that can help you lower cost"],
-            "audioAnnotation": [],
-            "nodeInputContent": [
-              {
-                "productTitle": "Financial Aid Handbook",
-                "productSubtitle": "",
-                "offer": "Loyalty Program",
-                "offerSummary": "Many adult students meeting the demands of work and family find that making the financial commitment to complete their education can be a challenge. The Office of Financial Aid is ready to assist students in securing the resources they need for their education",
-                "offerDetail" : ["Thomas Edison State University participates in a number of federal and state financial aid programs", "Eligible Thomas Edison State University students may receive Pell Grants or Federal Education Loans, such as the Subsidized Stafford Loan and the Unsubsidized Stafford Loan, for courses offered by the University", "Students may use state aid to meet all or part of their college costs, provided they are taking at least 12 college credits per term"],
-                "productImage": "https://chalakh-bot-js.s3.us-east-2.amazonaws.com/pg/images/pg-popup.jpg"
-              }
-
-
-            ],
-
-          }, // 19
-          {
-            "topicID": 0,
-            "nodeOrder": 20,
-            "nodeDisplayName": "Conversion Popup - Webinar Offer",
-            "nodeTemplateCategory": "conversionPopup",
-            "popupType": "webinarOffer",
-            "conversationBlurbs":["Finally there are numerous financial aid programs that can help you lower cost"],
-            "audioAnnotation": [],
-            "nodeInputContent": [
-              {
-                "webinarTitle": "The Uncertain Impact of Today’s Shopping Behavior",
-                "webinarSubtitle": "What Will Be the Effect on CPG Brand Loyalty?",
-                "webinarSchedule":"Wednesday, May 20, 2020, 1 PM ET | 10 AM PT",
-                "webinarSummary": "",
-                "webinarDetails": ["How buying behavior has changed throughout the pandemic across CPG categories",
-                  "How brand loyalty and repeat purchasing—for small, growing, and dominant brands— are being impacted",
-                  "How CPG companies can emerge from this pandemic with strong brand equity",
-
-                ],
-
-                "sponsorName":"Sponsor: NC Solutions",
-                "sponsorLogo":"https://s3.us-east-2.amazonaws.com/chalakh-bot-js/event/hcp/images/blueprint-sponsor.jpg",
-
-                "firstSpeakerPhoto": "https://chalakh-bot-js.s3.us-east-2.amazonaws.com/cforc/images/brothersncsolutions.png",
-                "secondSpeakerPhoto": "https://chalakh-bot-js.s3.us-east-2.amazonaws.com/cforc/images/woodncsolutions.png",
-                "firstSpeakerName":"Steve Dunlop",
-                "secondSpeakerName":"Joe Smith",
-                "firstSpeakerDesignation":"Chief Research Officer - NSC Solutions",
-                "secondSpeakerDesignation":"Chief T O - NSC Solutions",
-                "firstSpeakerBio": "A pioneer and innovator in advertising analytics with more than 30 years of experience,\n" +
-                " Leslie leads research at NCS, shaping the methodologies and innovations that help brands advertise more effectively.",
-                "secondSpeakerBio":"Lance and his team partner with clients to develop effective, data-driven marketing and measurement solutions that drive outcome-based advertising and growth. \n" +
-                "He has over 20 years of senior leadership experience in media, advertising and sales.",
-
-              }
-
-
-            ],
-
-          }, // 20
-
-
+          },  //25
 
           {
               "topicID": 0,
-              "nodeOrder": 21,
+              "nodeOrder": 26,
               "nodeDisplayName": "Terminate Conversation - Current Page",
               "nodeTemplateCategory": "terminateConversation",
               "terminationMode": 'exitOnCurrentPage',
@@ -1084,13 +1394,13 @@ $(document).ready(function(){
               "nodeInputContent": [{
                 "exitMessage": ["I hope I was helpful", "Thank You Good Bye"]
               }]
-            }, // 21
+            }, // 26
           ];
 
         setupParameters = [
           {
             "metaData": {
-              "trid": "3890"
+              "trid": trackingID
             }
           },
           {
@@ -1214,7 +1524,7 @@ $(document).ready(function(){
         activateParameters = [
           {
             "metaData": {
-              "trid": "544"
+              "trid": trackingID
             }
           },
           {
@@ -1247,7 +1557,11 @@ $(document).ready(function(){
                     "logicOperand":"and"
                   } */
 
-                ]
+                ],
+                "maxConversationAttempts": {
+                  "maxAttemptsDuringVisits":null,
+                  "maxAttemptsAcrossVisits":null,
+                }
               },
               "schedule":
                 {
@@ -1298,7 +1612,7 @@ $(document).ready(function(){
         SelfactivateParameters = [
           {
             "metaData": {
-              "trid": "544"
+              "trid": trackingID
             }
           },
           {
@@ -1436,7 +1750,7 @@ $(document).ready(function(){
           return deferred.promise();
       } // with concept of promise
 
-    function synchronousStuff(a) {
+    function synchronousStuffNewCampaign(a) {
 
       var items = [ [campaignMetaNew, 'start', trackingID],
         [storyTopicsMeta, 'topicsMeta', trackingID],
@@ -1458,12 +1772,36 @@ $(document).ready(function(){
       });
     } // to make sure campaign meta, topics meta, and node meta are published sequentially
 
+    function synchronousStuffUpdateCampaign(a) {
+
+    var items = [ [campaignMetaUpdate, 'start', trackingID],
+      [storyTopicsMeta, 'topicsMeta', trackingID],
+      [storyNodesMeta, 'nodesMeta', trackingID],
+    ];
+
+    var looper = $.Deferred().resolve();
+
+    // go through each item and call the ajax function
+    $.when.apply($, $.map(items, function(item, i) {
+      looper = looper.then(function() {
+        // trigger ajax call with item data
+        return postPayload(item[0], item[1], item[2]);
+      });
+      return looper;
+    })).then(function() {
+      // run this after all ajax calls have completed
+      console.log('Done!');
+    });
+  }
+
     function asynchronousStuff(a) {
 
       var response = publishNodeInputContent(a);
+
       var response = publishSetupParameters(a);
       var response = publishActivateParameters(a);
       var response = publishCampaignConversionGoals(a);
+
 
     }  // rest of the stuff - node input, activate, setup object
 
@@ -1509,7 +1847,7 @@ $(document).ready(function(){
        metaData = {"trid":trackingID};
        payload[0] = {metaData};
 
-      for (var n = 0; n < storyNodesInputContent.length; n++) {
+     for (var n = 0; n < storyNodesInputContent.length; n++) {
 
           returnedData = storyNodesInputContent[n];
           payload[1] = {returnedData};
