@@ -1,4 +1,17 @@
+/* 1. topicType not supported by composer - it will take the value conversationalSearch if a NOST like taxonomy is implemented in composer
+      if topicType is not present - creator will simply add null to the database table; so remove it here.
 
+   2. topicImage not supported by composer GUI. Required for story. So that user can upload an image for the topic selection; Thread does not require it
+
+   3. callToAction buttons in header - for now no support in composer - so commented out
+
+   4. story needs a conversational blurb - storyIntroduction - for now no support in composer so commented out
+
+   5. searchContent, searchQuery - only required for NOSTO like searches - no support in composer yet
+
+   6. dataPrefilled - field no support in composer
+
+*/
 
 $(document).ready(function(){
 
@@ -15,7 +28,6 @@ $(document).ready(function(){
 
       $("#asynchronousStuff").click(asynchronousStuff);
 
-      $("#updateCampaignALL").click(updateCampaignAll);
 
       $("#newCampaignMeta").click(newCampaignMeta);
 
@@ -37,11 +49,11 @@ $(document).ready(function(){
 
     }
     function initializeTrackingId() {
-       trackingID= 9099,
-        useCaseID = 2,
+        trackingID= 9199,
+        useCaseID = 1,
         variationID = 1,
-      //  postAPI = "http://127.0.0.1:8000/api/webhooks";
-         postAPI = "https://cret.chalakh.co/api/webhooks";
+        postAPI = "http://127.0.0.1:8000/api/webhooks";
+        // postAPI = "https://cret.chalakh.co/api/webhooks";
     };
     function initiliazeWebhookDataObj() {
         campaignMetaUpdate = [
@@ -59,22 +71,31 @@ $(document).ready(function(){
                 "uscs": useCaseID,
                 "tcnt": "1",
                 "ncnt": "8",
-                "campaignName": "Test Remaining Widgets",
+                "campaignName": "Test All Widgets",
                 "webproperty": "bs-local.com",
                 "searchType": "",
-                "campaignType": "simple",
+                "campaignType": "Grow",
+                "campaignSubtype": "Renew Subscribers",
+                "customerType": "b2bMedia",
                 "debugMode": true,
                 "audioAnnotation":false,
                 "primaryColor":null,
                 "secondaryColor":null,
-                "visitorGreeting": ["Hey there! Would you like to know how TESU can help advance your career?"],
-                "introduceStory":[],
+                "visitorGreeting": 
+                [
+                    {"body": "Join TESU Community", "body": "Hey there! Would you like to know how TESU can help advance your career?"},
+                    {"body": "Checkout What TESU Offers", "body": "Hi! See how TESU has benefited folks like you in their careers?"},
+                    {"body": "Affordable Quality Education", "body": "Hi! Checkout the course work we offer at affordable price?"}
+                ],
+                "greetingStyling": {"greetingPersistent":0, "greetingDisplayTime":45, "greetingPositionDesktop": "bottomLeft",
+                        "greetingPositionMobile": "bottom"},
+                /* "introduceStory":[],
                 "callToAction":[
 
-                  /* {"capability": "allowVisitorToMakeCall",
+                  {"capability": "allowVisitorToMakeCall",
                      "callToAction": "Call Now!",
                      "callToActionAttribute": "2034220459"
-                   }, */
+                  }, 
                   {"capability": "sendVisitorToHighValuePage",
                     "callToAction": "Apply Now",
                     "callToActionAttribute": "https://www.tesu.edu/apply"
@@ -87,7 +108,7 @@ $(document).ready(function(){
                     "callToAction": "Call Now!",
                     "callToActionAttribute": "https://chalakh-bot-js.s3.us-east-2.amazonaws.com/tesu/docs/catalog-ug.pdf"
                   },
-                ]
+                ] */
               }
           },
 
@@ -111,7 +132,9 @@ $(document).ready(function(){
                 "campaignName": "Test Remaining Widgets",
                 "webproperty": "bs-local.com",
                 "searchType": "",
-                "campaignType": "simple",
+                "campaignType": "Grow",
+                "campaignSubtype": "Renew Subscribers",
+                "customerType": "b2bMedia",
                 "debugMode": true,
                 "audioAnnotation":false,
                 "primaryColor":null,
@@ -157,8 +180,8 @@ $(document).ready(function(){
                 "topicID": 0,
                 "topicName": "Testing of Random Widgets",
                 "topicDescription":"",
-                "topicImage":"",
-                "topicType":"notConversationalSearch"
+                "topicImage":"", // currently no support in composer or cret database
+                //"topicType":"notConversationalSearch"
               }, // topic 0
 
 
@@ -177,10 +200,12 @@ $(document).ready(function(){
             "returnedData": [
             {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 0,
                 "nodeDisplayName": "Star Rating",
                 "nodeTemplateCategory": "starRating",
+                "goalCompleted": 0,
+                "callToAction": "",
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -191,10 +216,12 @@ $(document).ready(function(){
               },
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+               // "topicType":"notConversationalSearch",
                 "nodeOrder": 1,
                 "nodeDisplayName": "Rank Choices",
                 "nodeTemplateCategory": "rankChoices",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -205,10 +232,12 @@ $(document).ready(function(){
               },
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+              //  "topicType":"notConversationalSearch",
                 "nodeOrder": 2,
                 "nodeDisplayName": "Interactive Slider",
                 "nodeTemplateCategory": "interactiveSlider",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -219,10 +248,12 @@ $(document).ready(function(){
               },
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 3,
                 "nodeDisplayName": "Matrix Rating",
                 "nodeTemplateCategory": "matrixRating",
+                "callToAction": "",
+                "campaignConversion": 1, 
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -233,10 +264,12 @@ $(document).ready(function(){
               },
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 4,
                 "nodeDisplayName": "Image Selection",
                 "nodeTemplateCategory": "imageSelection",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -247,10 +280,12 @@ $(document).ready(function(){
               },
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 5,
                 "nodeDisplayName": "Quick Replies",
                 "nodeTemplateCategory": "quickReplies",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -261,10 +296,12 @@ $(document).ready(function(){
               }, // 5
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 6,
                 "nodeDisplayName": "Contacts Collector",
                 "nodeTemplateCategory": "contactsCollector",
+                "callToAction": "Sign Up",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -275,10 +312,12 @@ $(document).ready(function(){
               }, //6
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 7,
                 "nodeDisplayName": "Survey Question - Single Choice",
                 "nodeTemplateCategory": "surveyQuestion",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -289,10 +328,12 @@ $(document).ready(function(){
               }, //7
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 8,
                 "nodeDisplayName": "Survey Questi7on - Multiple Choice",
-                "nodeTemplateCategory": "surveyQuestion",
+                "nodeTemplateCategory": "surveyQuestion",    
+                "callToAction": "Submit",            
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -303,10 +344,12 @@ $(document).ready(function(){
               }, //8
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 9,
                 "nodeDisplayName": "Comment Box",
                 "nodeTemplateCategory": "commentBox",
+                "callToAction": "Tell Us", 
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -317,10 +360,12 @@ $(document).ready(function(){
               }, //9
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 10,
                 "nodeDisplayName": "Net Promoter Score",
                 "nodeTemplateCategory": "netPromoterScore",
+                "callToAction": "", 
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -331,10 +376,12 @@ $(document).ready(function(){
               }, //10
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 11,
                 "nodeDisplayName": "Downloadable Documents",
                 "nodeTemplateCategory": "marketingBrochure",
+                "callToAction": "Download Now",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -345,10 +392,12 @@ $(document).ready(function(){
               }, //11
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 12,
                 "nodeDisplayName": "Image Gallery",
                 "nodeTemplateCategory": "imageGallery",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -359,10 +408,12 @@ $(document).ready(function(){
               }, //12
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+               // "topicType":"notConversationalSearch",
                 "nodeOrder": 13,
                 "nodeDisplayName": "Presentation Slide",
                 "nodeTemplateCategory": "presentationSlide",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -373,10 +424,12 @@ $(document).ready(function(){
               }, //13
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 14,
                 "nodeDisplayName": "Content Tile",
                 "nodeTemplateCategory": "contentTile",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -387,10 +440,12 @@ $(document).ready(function(){
               }, //14
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+               // "topicType":"notConversationalSearch",
                 "nodeOrder": 15,
                 "nodeDisplayName": "Audio Video Message",
                 "nodeTemplateCategory": "audioVideoMessage",
+                "callToAction": "Subscribe",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -401,10 +456,12 @@ $(document).ready(function(){
               }, //15
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+               // "topicType":"notConversationalSearch",
                 "nodeOrder": 16,
                 "nodeDisplayName": "Content Card",
                 "nodeTemplateCategory": "contentCard",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -415,10 +472,12 @@ $(document).ready(function(){
               }, //16
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 17,
                 "nodeDisplayName": "Textual Description - With Image",
                 "nodeTemplateCategory": "textualDescription",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -429,10 +488,12 @@ $(document).ready(function(){
               }, //17
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 18,
                 "nodeDisplayName": "Textual Description - Without Image",
                 "nodeTemplateCategory": "textualDescription",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -443,10 +504,12 @@ $(document).ready(function(){
               }, //18
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 19,
-                "nodeDisplayName": "Bullet Points With Header",
+                "nodeDisplayName": "",
                 "nodeTemplateCategory": "bulletPoints",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -457,10 +520,12 @@ $(document).ready(function(){
               }, //19
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+               // "topicType":"notConversationalSearch",
                 "nodeOrder": 20,
                 "nodeDisplayName": "Bullet Points Without Header",
                 "nodeTemplateCategory": "bulletPoints",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -471,10 +536,12 @@ $(document).ready(function(){
               }, //20
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+               // "topicType":"notConversationalSearch",
                 "nodeOrder": 21,
-                "nodeDisplayName": "Quotable Quotes",
+                "nodeDisplayName": "",
                 "nodeTemplateCategory": "quotableQuotes",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -485,10 +552,12 @@ $(document).ready(function(){
               }, //21
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 22,
                 "nodeDisplayName": "Conversion Popup - Content Offer",
-                "nodeTemplateCategory": "conversionPopup",
+                "nodeTemplateCategory": "conversionPopup",  
+                "callToAction": "",              
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -499,10 +568,12 @@ $(document).ready(function(){
               }, //22
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 23,
                 "nodeDisplayName": "Conversion Popup - Product Offer With Image",
                 "nodeTemplateCategory": "conversionPopup",
+                "callToAction": "",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -513,10 +584,12 @@ $(document).ready(function(){
               }, //23
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 24,
                 "nodeDisplayName": "Converision Popup - Webinar Offer",
-                "nodeTemplateCategory": "conversionPopup",
+                "nodeTemplateCategory": "conversionPopup",  
+                "callToAction": "Sign Up",              
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -527,10 +600,12 @@ $(document).ready(function(){
               }, //24
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 25,
                 "nodeDisplayName": "Payment Processor",
                 "nodeTemplateCategory": "paymentProcessor",
+                "callToAction": "Donate",
+                "campaignConversion": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -542,10 +617,11 @@ $(document).ready(function(){
 
               {
                 "topicID": 0,
-                "topicType":"notConversationalSearch",
+                //"topicType":"notConversationalSearch",
                 "nodeOrder": 26,
                 "nodeDisplayName": "Terminate Conversation- Current Page",
                 "nodeTemplateCategory": "terminateConversation",
+                "campaignConversion": 1,
                 "skipLogicType": "end",
                 "skipLogic": [
 
