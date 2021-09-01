@@ -11,6 +11,8 @@
 
    6. dataPrefilled - field no support in composer
 
+   7. searchType obsolete - directory or curriculum - now derived from campaignType, subType, customer type
+
 */
 
 $(document).ready(function(){
@@ -27,7 +29,6 @@ $(document).ready(function(){
       $("#synchronousStuffUpdateCampaign").click(synchronousStuffUpdateCampaign);
 
       $("#asynchronousStuff").click(asynchronousStuff);
-
 
       $("#newCampaignMeta").click(newCampaignMeta);
 
@@ -63,53 +64,46 @@ $(document).ready(function(){
               }
             },
           {
-            "returnedData":
-
-              {
-                "ctype":"update",
-                "vaid": variationID,
-                "uscs": useCaseID,
-                "tcnt": "1",
-                "ncnt": "8",
-                "campaignName": "Test All Widgets",
-                "webproperty": "bs-local.com",
-                "searchType": "",
-                "campaignType": "Grow",
-                "campaignSubtype": "Renew Subscribers",
-                "customerType": "b2bMedia",
-                "debugMode": true,
-                "audioAnnotation":false,
-                "primaryColor":null,
-                "secondaryColor":null,
-                "visitorGreeting": 
-                [
-                    {"body": "Join TESU Community", "body": "Hey there! Would you like to know how TESU can help advance your career?"},
-                    {"body": "Checkout What TESU Offers", "body": "Hi! See how TESU has benefited folks like you in their careers?"},
-                    {"body": "Affordable Quality Education", "body": "Hi! Checkout the course work we offer at affordable price?"}
-                ],
-                "greetingStyling": {"greetingPersistent":0, "greetingDisplayTime":45, "greetingPositionDesktop": "bottomLeft",
-                        "greetingPositionMobile": "bottom"},
-                /* "introduceStory":[],
-                "callToAction":[
-
-                  {"capability": "allowVisitorToMakeCall",
-                     "callToAction": "Call Now!",
-                     "callToActionAttribute": "2034220459"
-                  }, 
-                  {"capability": "sendVisitorToHighValuePage",
-                    "callToAction": "Apply Now",
-                    "callToActionAttribute": "https://www.tesu.edu/apply"
-                  },
-                  {"capability": "getVisitorContactInformation",
-                    "callToAction": "Request Information",
-                    "callToActionAttribute": ""
-                  },
-                  {"capability": "downloadImportantDocument",
-                    "callToAction": "Call Now!",
-                    "callToActionAttribute": "https://chalakh-bot-js.s3.us-east-2.amazonaws.com/tesu/docs/catalog-ug.pdf"
-                  },
-                ] */
-              }
+              "returnedData":
+                  {
+                      "ctype": "update",
+                      "vaid": variationID,
+                      "uscs": useCaseID,
+                      "tcnt": "1",
+                      "ncnt": "8",
+                      "campaignName": "Testing of Widgets",
+                      "webproperty": "bs-local.com",
+                      "campaignType": "Grow",
+                      "campaignSubtype": "Renew Subscribers",
+                      "customerType": "b2bMedia",
+                      "debugMode": true,
+                      "greetingContent":
+                          [
+                              {
+                                  "title": "Join TESU Community",
+                                  "body": "Hey there! Would you like to know how TESU can help advance your career?"
+                              },
+                              {
+                                  "title": "Checkout What TESU Offers",
+                                  "body": "Hi! See how TESU has benefited folks like you in their careers?"
+                              },
+                              {
+                                  "title": "Affordable Quality Education",
+                                  "body": "Hi! Checkout the course work we offer at affordable price?"
+                              }
+                          ],
+                      "greetingStyling": {
+                          "greetingPersistent": 1, "greetingDisplayTime": 45, "greetingPositionDesktop": "bottomLeft",
+                          "greetingPositionMobile": "bottom"
+                      },
+                      "contentWindowStyling": {
+                          "primaryColor": null,
+                          "secondaryColor": null,
+                          'font': "font-family:arial",
+                          "contentWindowPosition": "center",
+                          "audioAnnotation": 0
+                      }
+                  }
           },
 
         ],
@@ -122,48 +116,45 @@ $(document).ready(function(){
           },
           {
             "returnedData":
-
-              {
-                "ctype":"new",
-                "vaid": variationID,
-                "uscs": useCaseID,
-                "tcnt": "1",
-                "ncnt": "8",
-                "campaignName": "Test Remaining Widgets",
-                "webproperty": "bs-local.com",
-                "searchType": "",
-                "campaignType": "Grow",
-                "campaignSubtype": "Renew Subscribers",
-                "customerType": "b2bMedia",
-                "debugMode": true,
-                "audioAnnotation":false,
-                "primaryColor":null,
-                "secondaryColor":null,
-                "visitorGreeting": ["Hey there! Would you like to know how TESU can help advance your career?"],
-                "introduceStory":[],
-                "callToAction":[
-
-                  /* {"capability": "allowVisitorToMakeCall",
-                     "callToAction": "Call Now!",
-                     "callToActionAttribute": "2034220459"
-                   }, */
-                  {"capability": "sendVisitorToHighValuePage",
-                    "callToAction": "Apply Now",
-                    "callToActionAttribute": "https://www.tesu.edu/apply"
-                  },
-                  {"capability": "getVisitorContactInformation",
-                    "callToAction": "Request Information",
-                    "callToActionAttribute": ""
-                  },
-                  {"capability": "downloadImportantDocument",
-                    "callToAction": "Call Now!",
-                    "callToActionAttribute": "https://chalakh-bot-js.s3.us-east-2.amazonaws.com/tesu/docs/catalog-ug.pdf"
-                  },
-                ]
-              }
-
-
-
+                {
+                    "ctype": "new",
+                    "vaid": variationID,
+                    "uscs": useCaseID,
+                    "tcnt": "1",
+                    "ncnt": "8",
+                    "campaignName": "Testing of Widgets",
+                    "webproperty": "bs-local.com",
+                    "campaignType": "Grow",
+                    "campaignSubtype": "Renew Subscribers",
+                    "customerType": "b2bMedia",
+                    "debugMode": true,
+                    "greetingContent":
+                        [
+                            {
+                                "title": "Join TESU Community",
+                                "body": "Hey there! Would you like to know how TESU can help advance your career?"
+                            },
+                            {
+                                "title": "Checkout What TESU Offers",
+                                "body": "Hi! See how TESU has benefited folks like you in their careers?"
+                            },
+                            {
+                                "title": "Affordable Quality Education",
+                                "body": "Hi! Checkout the course work we offer at affordable price?"
+                            }
+                        ],
+                    "greetingStyling": {
+                        "greetingPersistent": 0, "greetingDisplayTime": 45, "greetingPositionDesktop": "bottomLeft",
+                        "greetingPositionMobile": "bottom"
+                    },
+                    "contentWindowStyling": {
+                        "primaryColor": null,
+                        "secondaryColor": null,
+                        'font': "font-family:arial",
+                        "contentWindowPosition": "center",
+                        "audioAnnotation": 0
+                    }
+                }
           }
         ],  // important visitor greeting needs to be an array; since converted to NIMB for PA-1
 
@@ -183,9 +174,6 @@ $(document).ready(function(){
                 "topicImage":"", // currently no support in composer or cret database
                 //"topicType":"notConversationalSearch"
               }, // topic 0
-
-
-
             ]
           }
         ],
@@ -202,9 +190,9 @@ $(document).ready(function(){
                 "topicID": 0,
                 //"topicType":"notConversationalSearch",
                 "nodeOrder": 0,
-                "nodeDisplayName": "Star Rating",
+                "nodeDisplayName": "",
                 "nodeTemplateCategory": "starRating",
-                "goalCompleted": 0,
+                "campaignGoalAchieved": 0,
                 "callToAction": "",
                 "skipLogicType": "default",
                 "skipLogic": [
@@ -221,7 +209,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Rank Choices",
                 "nodeTemplateCategory": "rankChoices",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -237,7 +225,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Interactive Slider",
                 "nodeTemplateCategory": "interactiveSlider",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -253,7 +241,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Matrix Rating",
                 "nodeTemplateCategory": "matrixRating",
                 "callToAction": "",
-                "campaignConversion": 1, 
+                "campaignGoalAchieved": 1, 
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -269,7 +257,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Image Selection",
                 "nodeTemplateCategory": "imageSelection",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -285,7 +273,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Quick Replies",
                 "nodeTemplateCategory": "quickReplies",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -301,7 +289,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Contacts Collector",
                 "nodeTemplateCategory": "contactsCollector",
                 "callToAction": "Sign Up",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -317,7 +305,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Survey Question - Single Choice",
                 "nodeTemplateCategory": "surveyQuestion",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -333,7 +321,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Survey Questi7on - Multiple Choice",
                 "nodeTemplateCategory": "surveyQuestion",    
                 "callToAction": "Submit",            
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -349,7 +337,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Comment Box",
                 "nodeTemplateCategory": "commentBox",
                 "callToAction": "Tell Us", 
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -365,7 +353,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Net Promoter Score",
                 "nodeTemplateCategory": "netPromoterScore",
                 "callToAction": "", 
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -381,7 +369,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Downloadable Documents",
                 "nodeTemplateCategory": "marketingBrochure",
                 "callToAction": "Download Now",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -397,7 +385,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Image Gallery",
                 "nodeTemplateCategory": "imageGallery",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -413,7 +401,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Presentation Slide",
                 "nodeTemplateCategory": "presentationSlide",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -429,7 +417,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Content Tile",
                 "nodeTemplateCategory": "contentTile",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -445,7 +433,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Audio Video Message",
                 "nodeTemplateCategory": "audioVideoMessage",
                 "callToAction": "Subscribe",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -461,7 +449,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Content Card",
                 "nodeTemplateCategory": "contentCard",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -477,7 +465,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Textual Description - With Image",
                 "nodeTemplateCategory": "textualDescription",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -493,7 +481,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Textual Description - Without Image",
                 "nodeTemplateCategory": "textualDescription",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -509,7 +497,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "",
                 "nodeTemplateCategory": "bulletPoints",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -525,7 +513,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Bullet Points Without Header",
                 "nodeTemplateCategory": "bulletPoints",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -541,7 +529,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "",
                 "nodeTemplateCategory": "quotableQuotes",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -557,7 +545,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Conversion Popup - Content Offer",
                 "nodeTemplateCategory": "conversionPopup",  
                 "callToAction": "",              
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -573,7 +561,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Conversion Popup - Product Offer With Image",
                 "nodeTemplateCategory": "conversionPopup",
                 "callToAction": "",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -589,7 +577,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Converision Popup - Webinar Offer",
                 "nodeTemplateCategory": "conversionPopup",  
                 "callToAction": "Sign Up",              
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -605,7 +593,7 @@ $(document).ready(function(){
                 "nodeDisplayName": "Payment Processor",
                 "nodeTemplateCategory": "paymentProcessor",
                 "callToAction": "Donate",
-                "campaignConversion": 0,
+                "campaignGoalAchieved": 0,
                 "skipLogicType": "default",
                 "skipLogic": [
 
@@ -621,7 +609,7 @@ $(document).ready(function(){
                 "nodeOrder": 26,
                 "nodeDisplayName": "Terminate Conversation- Current Page",
                 "nodeTemplateCategory": "terminateConversation",
-                "campaignConversion": 1,
+                "campaignGoalAchieved": 1,
                 "skipLogicType": "end",
                 "skipLogic": [
 
@@ -639,7 +627,7 @@ $(document).ready(function(){
           {
             "topicID": 0,
             "nodeOrder": 0,
-            "nodeDisplayName": "Star Rating",
+            "nodeDisplayName": "",
             "nodeTemplateCategory": "starRating",
             "answerRequired": true,
             "instantResults":true,
@@ -725,61 +713,72 @@ $(document).ready(function(){
             "audioAnnotation": [],
             "nodeInputContent": [
               { "rowNumber": 0,
-                "columnNumber":0,
-                "rowLabel": "Mangoes",
-                "returnValue": "morning",
-                "columnLabel": "Morning",
-              },
-              { "rowNumber": 0,
-                "columnNumber":1,
-                "rowLabel": "Mangoes",
-                "returnValue": "afternoon",
-                "columnLabel": "Afternoon",
-              },
-              { "rowNumber": 0,
-                "columnNumber":1,
-                "rowLabel": "Mangoes",
-                "returnValue": "evening",
-                "columnLabel": "evening",
-              },
-
-              { "rowNumber": 1,
-                "columnNumber":0,
-                "rowLabel": "Perus",
-                "returnValue": "morning",
-                "columnLabel": "morning",
-              },
-              { "rowNumber": 1,
-                "columnNumber":1,
-                "rowLabel": "Perus",
-                "returnValue": "afternoon",
-                "columnLabel": "Afternoon",
-              },
-              { "rowNumber": 1,
-                "columnNumber":1,
-                "rowLabel": "Perus",
-                "returnValue": "evening",
-                "columnLabel": "Evening",
-              },
-
-              { "rowNumber": 2,
-                "columnNumber":0,
-                "rowLabel": "Bananas",
-                "columnLabel": "Morning",
-                "returnValue": "morning",
-              },
-              { "rowNumber": 2,
-                "columnNumber":1,
-                "rowLabel": "Bananas",
-                "returnValue": "afternoon",
-                "columnLabel": "Afternoon",
-              },
-              { "rowNumber": 2,
-                "columnNumber":1,
-                "rowLabel": "Bananas",
-                "returnValue": "evening",
-                "columnLabel": "Evening",
-              },
+                  "columnNumber":0,
+                  "rowLabel": "Mangoes",
+                   "rowValue": "mangoes",
+                  "columnLabel": "Morning",
+                  "columnValue": "morning",
+                },
+                { "rowNumber": 0,
+                  "columnNumber":1,
+                  "rowLabel": "Mangoes",
+                    "rowValue": "mangoes",
+                  "columnLabel": "Afternoon",
+                   "columnValue": "afternoon",
+                },
+                { "rowNumber": 0,
+                  "columnNumber":2,
+                  "rowLabel": "Mangoes",
+                  "rowValue": "mangoes",
+                  "columnLabel": "Evening",
+                   "columnValue": "evening",
+                },
+                
+                { "rowNumber": 1,
+                  "columnNumber":0,
+                  "rowLabel": "Perus",
+                   "rowValue": "perus",
+                  "columnLabel": "Morning",
+                   "columnValue": "morning",
+                },
+                { "rowNumber": 1,
+                  "columnNumber":1,
+                  "rowLabel": "Perus",
+                  "rowValue": "perus",
+                  "columnLabel": "Afternoon",
+                   "columnValue": "afternoon",
+                },
+                { "rowNumber": 1,
+                  "columnNumber":2,
+                  "rowLabel": "Perus",
+                  "rowValue": "perus",
+                  "columnLabel": "Evening",
+                   "columnValue": "evening",
+                },
+                
+                { "rowNumber": 2,
+                  "columnNumber":0,
+                  "rowLabel": "Bananas",
+                  "rowValue": "bananas",
+                  "returnValue": "morning",
+                  "columnLabel": "Morning",
+                  "columnValue": "morning",
+                },
+                { "rowNumber": 2,
+                  "columnNumber":1,
+                  "rowLabel": "Bananas",
+                   "rowValue": "bananas",
+                  "columnLabel": "Afternoon",
+                   "columnValue": "afternoon",
+                },
+                { "rowNumber": 2,
+                  "columnNumber":2,
+                  "rowLabel": "Bananas",
+                  "rowValue": "bananas",
+                  "columnLabel": "Evening",
+                  "columnValue": "evening",
+                },
+       
 
 
             ]
@@ -1626,8 +1625,8 @@ $(document).ready(function(){
                     "triggerValue": "1",
                     "logicOperand":"and"
                   },
-                  /*
-                  {
+                  
+                  /*{
                     "behaviorType": "pageScrollDepth",
                     "triggerValue": "60",
                     "logicOperand":"and"
@@ -1635,8 +1634,8 @@ $(document).ready(function(){
 
                 ],
                 "maxConversationAttempts": {
-                  "maxAttemptsDuringVisits":null,
-                  "maxAttemptsAcrossVisits":null,
+                  "maxAttemptsDuringVisits":4,
+                  "maxAttemptsAcrossVisits":6,
                 }
               },
               "schedule":
@@ -1876,7 +1875,7 @@ $(document).ready(function(){
 
       var response = publishSetupParameters(a);
       var response = publishActivateParameters(a);
-      var response = publishCampaignConversionGoals(a);
+      var response = publishcampaignGoalAchievedGoals(a);
 
 
     }  // rest of the stuff - node input, activate, setup object
@@ -1938,7 +1937,7 @@ $(document).ready(function(){
 
     }
 
-    function publishCampaignConversionGoals(a) {
+    function publishcampaignGoalAchievedGoals(a) {
 
       var response = postPayload(conversionParameters, 'cgoal', trackingID);
 

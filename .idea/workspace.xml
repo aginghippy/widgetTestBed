@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="147fa0f6-cfee-4b00-b3f7-884f920dcd91" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/completeTestBedWidgets.html" beforeDir="false" afterPath="$PROJECT_DIR$/completeTestBedWidgets.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/completeWidgetTestBed.js" beforeDir="false" afterPath="$PROJECT_DIR$/completeWidgetTestBed.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -19,20 +17,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="completeTestBedWidgets.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="completeTestBedWidgets.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/completeTestBedWidgets.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+            <state relative-caret-position="40">
+              <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="completeWidgetTestBed.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="completeWidgetTestBed.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/completeWidgetTestBed.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="91" column="16" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="16" />
+            <state relative-caret-position="270">
+              <caret line="85" column="31" lean-forward="true" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -151,8 +149,8 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-270" />
-    <option name="y" value="46" />
-    <option name="width" value="1389" />
+    <option name="y" value="45" />
+    <option name="width" value="1390" />
     <option name="height" value="745" />
   </component>
   <component name="ProjectView">
@@ -160,7 +158,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -172,6 +169,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -357,18 +355,19 @@
       <workItem from="1629824388714" duration="608000" />
       <workItem from="1629901642646" duration="1222000" />
       <workItem from="1629984615622" duration="603000" />
-      <workItem from="1630365300985" duration="1238000" />
+      <workItem from="1630365300985" duration="5970000" />
+      <workItem from="1630501956262" duration="2426000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="400779000" />
+    <option name="totallyTimeSpent" value="407937000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="830" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24348958" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.029947916" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -503,17 +502,17 @@
     <entry file="file://$PROJECT_DIR$/t.js" />
     <entry file="file://$PROJECT_DIR$/testWidgets.html" />
     <entry file="file://$PROJECT_DIR$/testWidgets.js" />
-    <entry file="file://$PROJECT_DIR$/completeTestBedWidgets.html">
+    <entry file="file://$PROJECT_DIR$/completeWidgetTestBed.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        <state relative-caret-position="270">
+          <caret line="85" column="31" lean-forward="true" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/completeWidgetTestBed.js">
+    <entry file="file://$PROJECT_DIR$/completeTestBedWidgets.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="91" column="16" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="16" />
+        <state relative-caret-position="40">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
         </state>
       </provider>
     </entry>
